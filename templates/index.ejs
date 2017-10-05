@@ -1,0 +1,59 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BotCouture</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-awusxf8AUojygHf2+joICySzB780jVvQaVCAt1clU3QsyAitLGul28Qxb2r1e5g+" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link type="text/css" href=./css/style.css>
+</head>
+<body>
+<script>
+    document.title = "BotCouture";
+    // document.getElementById("message").innerHTML = '123';
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'Messenger'));
+    (function (di, si, idi) {
+        var jsi, fjsi = di.getElementsByTagName(si)[0];
+        if (di.getElementById(idi)) return;
+        jsi = di.createElement(si);
+        jsi.idi = idi;
+        jsi.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9&appId=1407446699266584";
+        fjsi.parentNode.insertBefore(jsi, fjsi);
+    }(document, 'script', 'facebook-jssdk'));
+    window.extAsyncInit = function () {
+        MessengerExtensions.getUserID(function success(uids) {
+            window.attachApp('MOBILE');
+        }, function error(err) {
+            window.attachApp("DESKTOP");
+        });
+    };
+    function closeWebview() {
+        MessengerExtensions.requestCloseBrowser(function success() {
+        }, function error(err) {
+            console.log(err)
+        });
+    }
+</script>
+
+<div class="container-fluid">
+    <div id="app"/>
+</div>
+
+</body>
+</html>

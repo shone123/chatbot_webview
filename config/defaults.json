@@ -1,0 +1,6 @@
+{
+  "MULTICHANNELCHATBOTSERVER" : "http://localhost:6001",
+  "xpress_port":3000,
+  "MESSAGE_TEXT_GOOGLE_SHEET_ID" : "1EpEnH70OA7KMR979MSFt82IF1bBYCSxJsOd-U5ysHCE",
+  "Messages_SHEET_NAME"          : "ProfileCategories"
+}

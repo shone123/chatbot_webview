@@ -1,0 +1,7 @@
+{
+//  "MULTICHANNELCHATBOTSERVER" : "https://botcouturechatbot.xpresso.ai:6000",
+  "MULTICHANNELCHATBOTSERVER" : "https://stgapi.xpresso.ai/prodchatbot",
+  "xpress_port": 1338,
+  "MESSAGE_TEXT_GOOGLE_SHEET_ID" : "1EpEnH70OA7KMR979MSFt82IF1bBYCSxJsOd-U5ysHCE",
+  "Messages_SHEET_NAME"          : "ProfileCategories"
+}

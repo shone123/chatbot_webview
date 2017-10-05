@@ -1,0 +1,15 @@
+.edit {
+    display: none;
+}
+
+.blank:hover .edit {
+    display: inline-block;
+}
+
+.blank:hover .trail {
+    background-color: #e6e6e6;
+}
+
+.edit-wrapper {
+    cursor: pointer;
+}

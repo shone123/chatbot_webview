@@ -1,0 +1,113 @@
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+    <style>
+        .fab {
+            display: inline-block;
+            position: relative;
+            outline: none;
+            -webkit-user-select: none;
+            user-select: none;
+            cursor: pointer;
+            width: 60px;
+            height: 60px;
+            /*  line-height: 60px;*/
+            text-align: center;
+            font-size: 32px;
+            z-index: 999;
+            background: #eee;
+            color: #336699;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+            transition: 0.2s opacity ease-in-out;
+            -webkit-transition: 0.2s opacity ease-in-out;
+            border: 0;
+            overflow: hidden; }
+
+        .fab:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 120px;
+            height: 120px;
+            margin-left: -60px;
+            margin-top: -60px;
+            background: #aaa;
+            border-radius: 100%;
+            opacity: .6;
+            transform: scale(0); }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0); }
+            20% {
+                transform: scale(1); }
+            100% {
+                opacity: 0;
+                transform: scale(1); } }
+
+        .fab:not(:active):after {
+            animation: ripple 3s ease-out; }
+
+        /* fixes initial animation run, without user input, on page load.
+        */
+        .fab:after {
+            visibility: hidden; }
+
+        .fab:focus:after {
+            visibility: visible; }
+
+        .fab.fab-balanced {
+            color: #fff;
+            background: #33cd5f; }
+    </style>
+
+    <style>
+        #chat-window {
+            position: fixed;
+            right: 100px;
+            bottom: 0px;
+            z-index: 40;
+            width: 35%;
+            height: 95%;
+            display: none;
+        }
+        #chat-window iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+        #chat-button {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+        }
+    </style>
+
+    <script>
+        $(function() {
+            $( '#chat-button' ).click( function() {
+                $( '#chat-window' ).toggle();
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<button id='chat-button' class='fab fab-balanced'>
+    <i class="fa fa-comments-o fa-1x" aria-hidden="true"></i>
+</button>
+
+<div id='chat-window'>
+    <iframe src='https://webchat.botframework.com/embed/ITCbot?s=cvhf5EaBQRw.cwA.F_A.dn7HImEBx7HpeGmr6KEcwIBC9s8pJlgxk-JRJLgKpFA'></iframe>
+</div>
+
+
+
+</body>
+</html>
