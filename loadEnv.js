@@ -11,7 +11,7 @@ nconf.argv().env()
 let confName = nconf.get( 'conf' ) || ''
 confName = confName.trim()
 
-if ( _.includes( [ 'dev', 'stage', 'prod','jamie' ], confName ) ) {
+if ( _.includes( [ 'dev', 'stage', 'prod' ], confName ) ) {
 	console.log( 'Loading: ./config/' + confName + '.json' )
   nconf.add( 'file1', { file : './config/' + confName + '.json', type: 'file', format : hjson } );
 } else {
