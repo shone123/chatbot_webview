@@ -86,11 +86,13 @@ class DocumentSummary extends React.Component {
           </div>
         </div>
 
+        { this.state.summary.tips &&
         <div className='row' style={{marginTop: '10px'}}>
           <div className='col-xs-12 text-center'>
-            {_.upperFirst( this.state.product.summary.tips ) }
+              {_.upperFirst(this.state.product.summary.tips) }
           </div>
         </div>
+        }
 
           { this.state.summary.concepts &&
             <div className='row' style={{marginTop: '10px'}}>
