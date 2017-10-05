@@ -55,7 +55,6 @@ class DocumentSummary extends React.Component {
             summary : summary,
             showSpinner: false
         })
-        FB.XFBML.parse();
       }
     })
     .catch( err => {
@@ -80,21 +79,28 @@ class DocumentSummary extends React.Component {
     })
 
     let page = <div>
+
+      <div className='row' style={{ marginTop: '15px' }}>
+        <div className='col-xs-12'>
+          <TopHeader headerText="Document Summary"/>
+        </div>
+      </div>
+
         <div className='row' style={{marginTop: '15px'}}>
           <div className='col-xs-12 text-center'>
-            <b>Document Summary</b>
+            <b>{this.state.doc_name}</b>
           </div>
         </div>
 
-        { this.state.summary.tips &&
+        {this.state.summary && this.state.summary.tips &&
         <div className='row' style={{marginTop: '10px'}}>
           <div className='col-xs-12 text-center'>
-              {_.upperFirst(this.state.product.summary.tips) }
+              {_.upperFirst(this.state.summary.tips) }
           </div>
         </div>
         }
 
-          { this.state.summary.concepts &&
+          {this.state.summary && this.state.summary.concepts &&
             <div className='row' style={{marginTop: '10px'}}>
               <div className='col-xs-12 text-center'>
               <b>Key Concepts:</b> { _.upperFirst( this.state.summary.concepts ) }
