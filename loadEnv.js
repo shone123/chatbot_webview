@@ -8,7 +8,7 @@ var nconf = require( 'nconf'  )
 nconf.use( 'memory' )
 nconf.argv().env()
 
-let confName = nconf.get( 'conf' ) || ''
+var confName = nconf.get( 'conf' ) || ''
 confName = confName.trim()
 
 if ( _.includes( [ 'dev', 'stage', 'prod' ], confName ) ) {
