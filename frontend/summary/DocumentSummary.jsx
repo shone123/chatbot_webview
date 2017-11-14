@@ -30,19 +30,15 @@ class DocumentSummary extends React.Component {
     .then((result) => {
 
         let summary = result
-        let tips = ""
-        let concepts = ""
+        let tips = []
+        let concepts = []
 
-        for(let i=0;i<result.tips.length;i++ ){
-            tips = "\n" + tips + result.tips[i] + "\n"
-        }
 
-        for(let i=0;i<result.tips.concepts;i++ ){
-            concepts = "  " + tips + result.concepts[i] + "  "
-        }
+        concepts = result.concepts
+        tips = result.tips 
 
-        summary.tips = tips
         summary.concepts = concepts
+        summary.tips = tips
 
         console.log(' Document summary is ',summary)
 
@@ -94,20 +90,38 @@ class DocumentSummary extends React.Component {
 
         {this.state.summary && this.state.summary.tips &&
         <div className='row' style={{marginTop: '10px'}}>
-          <div className='col-xs-12 text-center'>
-              {_.upperFirst(this.state.summary.tips) }
-          </div>
+          <div className='col-xs-12 text-center'>"TIPS"</div>
         </div>
         }
 
-          {this.state.summary && this.state.summary.concepts &&
+          { this.state.summary && this.state.summary.tips && this.state.summary.tips.map( (val, index) =>
+                <div className='col-xs-12 wrapper' key = {index} style={{marginTop:'5px'}}> 
+                <ul class="list-group">
+                  <li class="list-group-item list-group-item-action flex-column align-items-start">
+                    <p class="mb-1">{val}</p>
+                  </li>
+                  </ul>
+                </div>
+          )}
+
+
+        {this.state.summary && this.state.summary.concepts &&
             <div className='row' style={{marginTop: '10px'}}>
-              <div className='col-xs-12 text-center'>
-              <b>Key Concepts:</b> { _.upperFirst( this.state.summary.concepts ) }
+              <div className='col-xs-12'>
+              <b>Key Concepts:</b> 
               </div>
             </div>
          }
 
+        { this.state.summary && this.state.summary.concepts && this.state.summary.concepts.map( (val, index) =>
+          <div className='col-xs-12 wrapper' key = {index} style={{marginTop:'5px'}}> 
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-action">
+                <p class="mb-1">{val}</p>
+              </li>
+            </ul>
+      </div>
+      )}
 
       </div>
 
