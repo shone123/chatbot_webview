@@ -90,7 +90,7 @@ class DocumentSummary extends React.Component {
 
         {this.state.summary && this.state.summary.tips &&
         <div className='row' style={{marginTop: '10px'}}>
-          <div className='col-xs-12 text-center'>"TIPS"</div>
+          <div className='col-xs-12 text-center'>"SUMMARY"</div>
         </div>
         }
 
