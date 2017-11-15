@@ -28,7 +28,7 @@ RUN echo "[LOG] Installation Done"
 COPY . /ust_doc_webview
 WORKDIR ./ust_doc_webview
 RUN npm install --silent
-RUN npm install forever
+RUN npm install -g forever
 RUN npm run client-build
 ENTRYPOINT ["/ust_doc_webview/docker-entrypoint.sh"]
 
