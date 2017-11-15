@@ -1,4 +1,4 @@
 {
-  "USTBOTSERVER" : "https://cdd5acba.ngrok.io",
+  "USTBOTSERVER" : "http://localhost:5050",
   "xpress_port":1338
 }
