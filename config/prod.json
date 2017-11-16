@@ -1,4 +1,4 @@
 {
   "USTBOTSERVER" : "http://localhost:5050",
-  "xpress_port":1338
+  "xpress_port":7000
 }
