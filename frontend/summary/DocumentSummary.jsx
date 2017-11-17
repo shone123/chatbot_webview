@@ -17,6 +17,8 @@ class DocumentSummary extends React.Component {
     this.state = {
 
         doc_name : this.props.query.doc_name,
+        query  : this.props.query.query,
+        user  : this.props.query.user,
         showSpinner : true,
         product: {
           image: '/images/not_available.jpg'
@@ -26,19 +28,33 @@ class DocumentSummary extends React.Component {
 
   componentDidMount() {
 
-    getDocumentSummary(this.props.query.psid, this.props.query.botid, this.state.doc_name)
+    getDocumentSummary(this.props.query.psid, this.props.query.botid, this.state.doc_name, this.state.query, this.state.user)
     .then((result) => {
 
-        let summary = result
+        let summary = {}
         let tips = []
         let concepts = []
-
+        let hit = {}
 
         concepts = result.concepts
         tips = result.tips 
+        hit = result.hit
+
+        let hits = []
+        let val
+        if(hit) {
+          let key
+          console.log("hit is ", hit)
+          console.log("type of hit is ",typeof(hit))
+          for(key in hit) {
+            val = key 
+            hits.push(val)
+          }
+        }
 
         summary.concepts = concepts
         summary.tips = tips
+        summary.hits = hits
 
         console.log(' Document summary is ',summary)
 
@@ -88,22 +104,39 @@ class DocumentSummary extends React.Component {
           </div>
         </div>
 
+
+        {this.state.summary && this.state.summary.hits &&
+        <div className='row' style={{marginTop: '10px'}}>
+          <div className='col-xs-12 text-center'>"SUMMARY HITS"</div>
+        </div>
+        }
+
+        { this.state.summary && this.state.summary.hits && this.state.summary.hits.map( (val, index) =>
+            <div className='col-xs-12 wrapper' key = {index} style={{marginTop:'5px'}}> 
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-action flex-column align-items-start">
+                  <p class="mb-1">{val}</p>
+                </li>
+              </ul>
+            </div>
+        )}
+
+
         {this.state.summary && this.state.summary.tips &&
         <div className='row' style={{marginTop: '10px'}}>
           <div className='col-xs-12 text-center'>"SUMMARY"</div>
         </div>
         }
 
-          { this.state.summary && this.state.summary.tips && this.state.summary.tips.map( (val, index) =>
-                <div className='col-xs-12 wrapper' key = {index} style={{marginTop:'5px'}}> 
-                <ul class="list-group">
-                  <li class="list-group-item list-group-item-action flex-column align-items-start">
-                    <p class="mb-1">{val}</p>
-                  </li>
-                  </ul>
-                </div>
-          )}
-
+        { this.state.summary && this.state.summary.tips && this.state.summary.tips.map( (val, index) =>
+            <div className='col-xs-12 wrapper' key = {index} style={{marginTop:'5px'}}> 
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-action flex-column align-items-start">
+                  <p class="mb-1">{val}</p>
+                </li>
+              </ul>
+            </div>
+        )}
 
         {this.state.summary && this.state.summary.concepts &&
             <div className='row' style={{marginTop: '10px'}}>

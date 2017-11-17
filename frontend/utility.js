@@ -2,13 +2,15 @@ import React from 'react'
 import request from 'superagent'
 import _ from 'lodash'
 
-export var getDocumentSummary = (psid, botid, doc_name) => {
+export var getDocumentSummary = (psid, botid, doc_name, query, user) => {
   return new Promise((resolve, reject) => {
     request.post( '/api/getDocumentSummary' )
       .send( {
           psid   : psid,
           botid  : botid,
-          doc_name : doc_name
+          doc_name : doc_name,
+          user  : user,
+          query : query
       })
       .then( res => JSON.parse( res.text ) )
       .then( summary => {

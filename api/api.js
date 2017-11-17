@@ -17,13 +17,13 @@ let CHATBOTSERVER = nconf.get( 'USTBOTSERVER' )
  */
 router.post( '/getDocumentSummary', ( req, res ) => {
   let params = req.body
-  if ( ! params.psid || ! params.botid || ! params.doc_name ) {
-    res.status( 404 ).send( 'UserId, BotId or doc_name not provided.' )
+  if ( ! params.psid || ! params.botid || ! params.doc_name || ! params.query || !params.user) {
+    res.status( 404 ).send( 'UserId, BotId, doc_name, query or user not provided.' )
     return
   }
   console.log( 'getDocumentSummary -> ', params )
   request.post( `${CHATBOTSERVER}/webview/getDocumentSummary` )
-  .send({ psid: params.psid, botid: params.botid, doc_name: params.doc_name })
+  .send({ psid: params.psid, botid: params.botid, doc_name: params.doc_name, query: params.query, user : params.user })
   .then( result => {
     console.log( 'getDocumentSummary -> ', JSON.parse( result.text ) )
     // res.sendStatus( 200 )
