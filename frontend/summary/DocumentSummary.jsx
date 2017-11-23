@@ -107,7 +107,7 @@ class DocumentSummary extends React.Component {
 
         {this.state.summary && this.state.summary.hits &&
         <div className='row' style={{marginTop: '10px'}}>
-          <div className='col-xs-12 text-center'>"SUMMARY HITS"</div>
+          <div className='col-xs-12 text-center'>"Query Based Summary"</div>
         </div>
         }
 
@@ -124,7 +124,7 @@ class DocumentSummary extends React.Component {
 
         {this.state.summary && this.state.summary.tips &&
         <div className='row' style={{marginTop: '10px'}}>
-          <div className='col-xs-12 text-center'>"SUMMARY"</div>
+          <div className='col-xs-12 text-center'>"General Summary"</div>
         </div>
         }
 

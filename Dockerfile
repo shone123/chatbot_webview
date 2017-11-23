@@ -11,7 +11,7 @@ RUN echo "[LOG] node version installed"
 RUN node -v
 RUN echo "[LOG] npm version installed"
 RUN npm -v
-RUN apt-get -y install git
+RUN apt-get -y install git vim
 RUN echo "[LOG] git version installed"
 RUN git --version
 RUN apt-get -y install wget
