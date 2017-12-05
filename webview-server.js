@@ -17,12 +17,12 @@ const app = express()
 //   }, app )
 // }
 
-app.use(helmet({
+/*app.use(helmet({
   frameguard: {
     action: 'allow-from',
     domain: 'https://www.messenger.com/'
   }
-}))
+}))*/
 app.use( bodyParser.json() )
 app.use( bodyParser.urlencoded( { extended: true } ) )
 app.use( express.static( path.join( __dirname, 'public' ) ) )
