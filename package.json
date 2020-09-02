@@ -17,7 +17,7 @@
     "classnames": "^2.2.5",
     "draft-js": "^0.10.1",
     "express": "^4.15.3",
-    "googleapis": "^19.0.0",
+    "googleapis": "^59.0.0",
     "halogen": "^0.2.0",
     "helmet": "^3.8.1",
     "hjson": "^2.4.2",
